@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnt :Button
+    private lateinit var btnr :Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +19,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnt = findViewById(R.id.btnl)
+        btnr = findViewById(R.id.btnRecycle)
 
         btnt.setOnClickListener(){
             val intent = Intent(this, listview::class.java)
+            intent.putExtra("EXTRA_MESSAGE", "Hello from MainActivity")
+            startActivity(intent)
+        }
+        btnr.setOnClickListener(){
+            val intent = Intent(this, RecycleView::class.java)
             intent.putExtra("EXTRA_MESSAGE", "Hello from MainActivity")
             startActivity(intent)
         }

@@ -18,6 +18,14 @@
             android:text="List View"
             android:layout_centerInParent="true"
             />
+        <Button
+            android:id="@+id/btnRecycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnl"
+            android:text="Recyclelist"
+            android:layout_centerInParent="true"
+            />
 
 
     </RelativeLayout>
