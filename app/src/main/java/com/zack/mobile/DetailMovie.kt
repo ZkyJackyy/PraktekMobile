@@ -1,31 +1,28 @@
 package com.zack.mobile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class welcomePage : AppCompatActivity() {
-
-    private lateinit var txtwelcome : TextView
-
+class DetailMovie : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_welcome_page)
+        setContentView(R.layout.activity_detail_movie)
 
-        txtwelcome =findViewById(R.id.textView)
+        val imageResId = intent.getIntExtra("imageResId",-1)
 
+        if(imageResId != -1){
+            val imageView = findViewById<ImageView>(R.id.ivDetail)
+            imageView.setImageResource(imageResId)
+        }
 
-        val getusername =intent.getStringExtra("username")
-        val getpassword =intent.getStringExtra("Password")
-
-
-        txtwelcome.setText("hallo${getusername} password anda adalah ${getpassword}")
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.rv_data)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

@@ -1,5 +1,6 @@
 package com.zack.mobile
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -20,17 +21,36 @@ class listview : AppCompatActivity() {
 
         lv_item = findViewById(R.id.lsview)
 
-        val namahewan = listOf("harimau","ikan","kuda","gajah","ikan")
+        val namahewan = listOf("harimau","ikan","kuda","gajah","kumbang")
+
+        val gambarhewan = mapOf(
+            "harimau" to R.drawable.harimau,
+            "ikan" to R.drawable.ikan,
+            "kuda" to R.drawable.kuda,
+            "gajah" to R.drawable.gajah,
+            "kumbang" to R.drawable.kumbang,
+        )
+
+
 
         lv_item.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,namahewan)
 
 
-        lv_item.setOnItemClickListener{
+        lv_item.setOnItemClickListener(){
             parent,view ,position ,id ->
+            val selectedhewan =namahewan[position]
             Toast.makeText(this, "anda memilih : ${namahewan[position]}", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, DetailHewan::class.java)
+            intent.putExtra("namahewan",selectedhewan)
+            intent.putExtra("gambarhewan",gambarhewan[selectedhewan]?:0)
+            startActivity(intent)
         }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.rv_data)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

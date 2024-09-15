@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/rv_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -24,6 +24,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnl"
             android:text="Recyclelist"
+            android:layout_centerInParent="true"
+            />
+        <Button
+            android:id="@+id/btnbuah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnRecycle"
+            android:text="Rv Buah"
+            android:layout_centerInParent="true"
+            />
+
+        <Button
+            android:id="@+id/btnmovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnbuah"
+            android:text="Rv Movie"
             android:layout_centerInParent="true"
             />
 
