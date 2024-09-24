@@ -1,5 +1,6 @@
 package com.zack.mobile.BukuAdapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.zack.mobile.DetailMovie
 import com.zack.mobile.MainActivity
 import com.zack.mobile.R
 import com.zack.mobile.ViewCardMovie
@@ -46,6 +49,17 @@ class MovieAdapter constructor(
                 getActivity, movieList[position].title,
                 Toast.LENGTH_SHORT
             ).show()
+            val intent = Intent(getActivity,DetailMovie::class.java)
+            intent.putExtra("imageResId",movieList[position].image)
+            intent.putExtra("judul",movieList[position].title)
+            intent.putExtra("tanggal",movieList[position].tanggal)
+            intent.putExtra("sinopsis",movieList[position].sinopsis)
+            getActivity.startActivity(intent)
+
+
+
+
+
         }
     }
 

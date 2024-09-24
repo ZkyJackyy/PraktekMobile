@@ -17,7 +17,7 @@ class DetailBuah : AppCompatActivity() {
         val NmBuah = intent.getStringExtra("namaBuah")
         val gmbrBuah = intent.getIntExtra("gambarBuah",0)
 
-        val tvNmBuah = findViewById<TextView>(R.id.tvNmBuah)
+        val tvNmBuah = findViewById<TextView>(R.id.imgDetailBuah)
         val ivGmbrBuah = findViewById<ImageView>(R.id.ivGmbrBuah)
 
         tvNmBuah.text =NmBuah

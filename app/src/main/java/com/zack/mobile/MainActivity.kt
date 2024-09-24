@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnr :Button
     private lateinit var btnbuah : Button
     private lateinit var btnmovie : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

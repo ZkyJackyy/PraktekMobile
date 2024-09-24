@@ -32,14 +32,7 @@ class CustomImage : AppCompatActivity() {
         rv_buah.layoutManager = GridLayoutManager(this,1,
             GridLayoutManager.VERTICAL,false)
 
-        val adapter = BuahAdapter(MockList.getModel()as ArrayList<ModelBuah>){buah ->
-            val intent = Intent(this, DetailBuah::class.java)
-            intent.putExtra("namaBuah",buah.nama)
-            intent.putExtra("gambarBuah",buah.image)
-            startActivity(intent)
-
-
-        }
+        val adapter = BuahAdapter(MockList.getModel()as ArrayList<ModelBuah>,this)
         rv_buah.adapter =adapter
 
 

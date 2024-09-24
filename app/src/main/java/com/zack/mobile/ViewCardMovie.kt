@@ -69,6 +69,8 @@ class ViewCardMovie : AppCompatActivity() {
     private fun showDetailDialog(position: Int) {
         val intent = Intent(this,DetailMovie::class.java)
         intent.putExtra("imageResId",movieList[position].image)
+        intent.putExtra("judul",movieList[position].title)
+
         startActivity(intent)
     }
 

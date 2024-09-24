@@ -1,6 +1,5 @@
 package com.zack.mobile
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,27 +8,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class DetailMovie : AppCompatActivity() {
+class BuahDetail : AppCompatActivity() {
 
-    @SuppressLint("MissingInflatedId")
+    private lateinit var txtDetailBuah : TextView
+    private lateinit var imgDetailBuah : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_detail_movie)
+        setContentView(R.layout.activity_buah_detail)
 
 
+        txtDetailBuah = findViewById(R.id.txtDetailBuah)
+        imgDetailBuah = findViewById(R.id.imgDetailBuah)
 
-        val detailText = intent.getStringExtra("judul")
+        val detailText = intent.getStringExtra("deskripsi")
+        val detailImage = intent.getIntExtra("image",0)
 
-        val imageResId = intent.getIntExtra("imageResId",-1)
-
-        if(imageResId != -1){
-            val imageView = findViewById<ImageView>(R.id.ivDetail)
-            imageView.setImageResource(imageResId)
-            val tvdetail = findViewById<TextView>(R.id.tvDetail)
-            tvdetail.text = detailText
-        }
-
+        txtDetailBuah.setText(detailText)
+        imgDetailBuah.setImageResource(detailImage)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

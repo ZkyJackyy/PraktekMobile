@@ -1,15 +1,19 @@
 package com.zack.mobile.BukuAdapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.zack.mobile.BuahDetail
+import com.zack.mobile.CustomImage
+import com.zack.mobile.MainActivity
 import com.zack.mobile.R
 import com.zack.mobile.model.ModelBuah
 
-class BuahAdapter (val itemList: ArrayList<ModelBuah>,private val onItemClick:(ModelBuah) -> Unit):
+class BuahAdapter (val itemList: ArrayList<ModelBuah>,private val getActivity: CustomImage):
       RecyclerView.Adapter<BuahAdapter.ModelViewHolder>(){
     class ModelViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
         var itemimage : ImageView
@@ -43,7 +47,11 @@ class BuahAdapter (val itemList: ArrayList<ModelBuah>,private val onItemClick:(M
         holder.itemtext.setText(itemList[position].nama)
 
         holder.itemView.setOnClickListener(){
-            onItemClick(itemList[position])
+
+            val intent = Intent(getActivity,BuahDetail::class.java)
+            intent.putExtra("deskripsi", itemList[position].nama)
+            intent.putExtra("image", itemList[position].image)
+            getActivity.startActivity(intent)
         }
 
     }
