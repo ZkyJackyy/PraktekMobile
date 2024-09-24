@@ -49,12 +49,12 @@ class MovieAdapter constructor(
                 getActivity, movieList[position].title,
                 Toast.LENGTH_SHORT
             ).show()
-            val intent = Intent(getActivity,DetailMovie::class.java)
-            intent.putExtra("imageResId",movieList[position].image)
-            intent.putExtra("judul",movieList[position].title)
-            intent.putExtra("tanggal",movieList[position].tanggal)
-            intent.putExtra("sinopsis",movieList[position].sinopsis)
-            getActivity.startActivity(intent)
+            //val intent = Intent(getActivity,DetailMovie::class.java)
+           // intent.putExtra("imageResId",movieList[position].image)
+           // intent.putExtra("judul",movieList[position].title)
+           // intent.putExtra("tanggal",movieList[position].tanggal)
+           // intent.putExtra("sinopsis",movieList[position].sinopsis)
+           // getActivity.startActivity(intent)
 
 
 
